@@ -104,7 +104,25 @@ No changes required in other parts of the system.
 
 ---
 
-## 7. Production improvements
+## 7. Key design alternatives considered
+1. In-memory storage vs database
+Chosen: in-memory Map
+Alternative: PostgreSQL / MongoDB
+Reason: faster implementation for prototype, easier focus on architecture
+2. Polling vs WebSockets
+Chosen: polling
+Alternative: WebSockets / SSE
+Reason: simplicity and sufficient for demonstration purposes
+3. Embedded worker vs external queue system
+Chosen: internal worker simulation
+Alternative: Redis / RabbitMQ queue workers
+Reason: avoid infrastructure complexity in prototype
+4. Registry vs hardcoded mapping
+Chosen: registry pattern
+Alternative: switch/if statements
+Reason: better extensibility and separation of concerns
+
+## 8. Production improvements
 
 - Add Redis queue for job processing
 - Add database for job persistence
